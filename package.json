@@ -1,0 +1,12 @@
+{
+  "name": "the-deno-talk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "1": "deno run src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
