@@ -1,13 +1,12 @@
 // deno run --allow-net src/02.web-like.ts
-const examples: { name: string, ex: () => void }[] = [];
-const add = (name: string, ex: () => void) => examples.push({name, ex});
+import { runExamples, addExample } from './utils/runner.ts';
 
 
 
 
 
 
-add('1. Event Listeners, instead of EventEmitter-interface',
+addExample('Event Listeners, instead of EventEmitter-interface',
 () => {
   addEventListener('unload', () => console.log('unloading...'));
   addEventListener('custom', () => console.log('on custom event...'));
@@ -20,7 +19,7 @@ add('1. Event Listeners, instead of EventEmitter-interface',
 
 
 
-add('2. Base-64',
+addExample('Base-64',
 () => {
   const base64String = btoa('log some string...');
   console.log(atob(base64String));
@@ -33,7 +32,7 @@ add('2. Base-64',
 
 
 
-add('3. fetch',
+addExample('fetch',
 async () => {
   const response = await fetch('https://httpbin.org/headers');
   const json = await response.json();
@@ -47,7 +46,7 @@ async () => {
 
 
 
-add('4. Confirm, prompt, alert',
+addExample('Confirm, prompt, alert',
 () => {
   if (confirm('Svar på noe!')) {
     const selected = prompt('Ka vel du ha?', 'banos!');
@@ -62,7 +61,7 @@ add('4. Confirm, prompt, alert',
 
 
 
-add('5. self === window === globalThis',
+addExample('self === window === globalThis',
   () => console.log(self)
 );
 
@@ -72,10 +71,29 @@ add('5. self === window === globalThis',
 
 
 
-// ignite!
-const runExample = prompt(`
-Select example:
-\t${examples.map(e => e.name).join('\n\t')}
-`) || '1';
-console.log('\n---------------------\n');
-examples[parseFloat(runExample) - 1].ex();
+
+
+addExample('6. wasm',
+() => {
+  const wasmCode = new Uint8Array([
+    0, 97, 115, 109, 1, 0, 0, 0, 1, 133, 128, 128, 128, 0, 1, 96, 0, 1, 127,
+    3, 130, 128, 128, 128, 0, 1, 0, 4, 132, 128, 128, 128, 0, 1, 112, 0, 0,
+    5, 131, 128, 128, 128, 0, 1, 0, 1, 6, 129, 128, 128, 128, 0, 0, 7, 145,
+    128, 128, 128, 0, 2, 6, 109, 101, 109, 111, 114, 121, 2, 0, 4, 109, 97,
+    105, 110, 0, 0, 10, 138, 128, 128, 128, 0, 1, 132, 128, 128, 128, 0, 0,
+    65, 42, 11
+  ]);
+  const wasmModule = new WebAssembly.Module(wasmCode);
+  const wasmInstance = new WebAssembly.Instance(wasmModule);
+  const main = wasmInstance.exports.main as CallableFunction
+  console.log(main().toString());
+});
+
+
+
+
+
+
+
+// ignite
+runExamples();
