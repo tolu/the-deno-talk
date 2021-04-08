@@ -6,6 +6,9 @@ To get a dev environment that already has `deno` (latest) installed and the offi
 
 ![image](https://user-images.githubusercontent.com/658586/111420864-44d2c680-86ec-11eb-9ecc-2859a30dd948.png)
 
+> ℹ️ TIP ℹ️  
+> Use <kbd>cmd/ctrl</kbd>+<kbd>shift</kbd>+<kbd>B</kbd> (in a file) for a list of pre-defined tasks for running, formatting, linting, compiling etc
+
 ## Basics
 
 ### CLI
@@ -54,6 +57,7 @@ deno install -A -n serve https://deno.land/std@0.92.0/http/file_server.ts
 ### Permissions
 
 Using file_server from last example
+
 ```sh
 # no permissions
 deno run https://deno.land/std@0.92.0/http/file_server.ts
@@ -103,6 +107,7 @@ Other permissions include:
 - wasm
 
 Other API's that's available
+
 - blob
 - console
 - FormData

@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "deno run -A ${file}",
+      "group": "build",
+      "label": "deno run ${file}",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "deno fmt ${file}",
+      "group": "build",
+      "label": "deno fmt ${file}",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "deno lint --unstable",
+      "group": "build",
+      "label": "deno lint",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "deno bundle ${file}",
+      "group": "build",
+      "label": "deno bundle ${file}",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "deno compile --lite --unstable -A --output ${input:outfile} ${file}",
+      "group": "build",
+      "label": "deno compile ${file}",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "outfile",
+      "description": "Name your executable",
+      "default": "${fileBasenameNoExtension}"
+    }
+  ]
+}
