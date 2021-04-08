@@ -127,10 +127,6 @@ Other API's that's available
 - location api
 - workers
 
-### 04.utilities
+### 04.lint-n-check
 
-- `deno lint`
-- `deno fmt`
-- `deno bundle`
-- `deno compile`
-- `deno test`
+Use task (<kbd>cmd/ctrl</kbd>+<kbd>shift</kbd>+<kbd>B</kbd>) to run, format and lint file
