@@ -75,6 +75,9 @@ Other permissions include:
 - `--allow-read=<dir1, file1>` file system read
 - `--allow-run` subprocesses
 - `--allow-write=<dir1, file1>` file system write
+- `--allow-hrtime` high res time
+- `--allow-plugin`
+- `--allow-all`
 
 > Permissions need to be declared at installation time for `deno install`
 
