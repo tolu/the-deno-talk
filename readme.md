@@ -1,6 +1,8 @@
 # the deno talk
 
-> https://deno.land/
+> https://deno.land/ 
+
+> 🎨 [slides](https://docs.google.com/presentation/d/1god1ypvbqF4tNsUc89_N-Wk4dexyt5nnjx-obE1bRrs/edit?usp=sharing)
 
 To get a dev environment that already has `deno` (latest) installed and the official deno-language plugin, use VS Code and select "reopen in container" like so.
 
